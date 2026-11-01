@@ -1,0 +1,52 @@
+{
+  "world": "mobile_world",
+  "start": {
+    "x": -0.55,
+    "y": 0.0,
+    "yaw": 0.0
+  },
+  "pick_stop": {
+    "x": 0.0,
+    "y": 0.0,
+    "yaw": 0.0
+  },
+  "turn": {
+    "x": -0.55,
+    "y": 0.0,
+    "yaw": 0.0
+  },
+  "drop_stop": {
+    "x": -0.55,
+    "y": 1.0,
+    "yaw": 1.5707963267948966
+  },
+  "pickup_stand": {
+    "x": 0.275,
+    "y": 0.0,
+    "top_z": 0.145
+  },
+  "product_cube": {
+    "x": 0.24,
+    "y": 0.0,
+    "z": 0.171
+  },
+  "delivery_stand": {
+    "x": -0.8,
+    "y": 1.137,
+    "top_z": 0.1815,
+    "width": 0.08
+  },
+  "route": [
+    "W (start→pick)",
+    "P",
+    "S (pick→start)",
+    "A ~90°",
+    "W (start→drop)",
+    "R"
+  ],
+  "ghost_visual_counts": {
+    "pick": 10,
+    "drop": 10
+  },
+  "notes": "Keys cannot be counted exactly until drive speed/pulse is calibrated. Ghosts are static non-colliding visuals. Arm not included in world; spawn real robot separately."
+}

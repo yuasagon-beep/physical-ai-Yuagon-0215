@@ -1,0 +1,1179 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sdf version="1.8">
+  <world name="mobile_world">
+    <gravity>0 0 -9.8</gravity>
+    <physics name="physics" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+    <plugin filename="libignition-gazebo-physics-system.so" name="ignition::gazebo::systems::Physics" />
+    <plugin filename="libignition-gazebo-user-commands-system.so" name="ignition::gazebo::systems::UserCommands" />
+    <plugin filename="libignition-gazebo-scene-broadcaster-system.so" name="ignition::gazebo::systems::SceneBroadcaster" />
+    <light name="sun" type="directional">
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.9 0.9 0.9 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>-0.3 -0.3 -1</direction>
+    </light>
+    <model name="ground">
+      <static>true</static>
+      <link name="ground_link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>20 20</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>20 20</size>
+            </plane>
+          </geometry>
+          <material>
+            <diffuse>0.75 0.78 0.82 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="course_graphics">
+      <static>true</static>
+      <link name="paint">
+        <visual name="start_pad">
+          <pose>-0.5500000 0.0000000 0.0040000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.2400000</radius>
+              <length>0.0030000</length>
+            </cylinder>
+          </geometry>
+          <transparency>0.4800000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.1800000 0.4900000 1.0000000 1.0000000</ambient>
+            <diffuse>0.1800000 0.4900000 1.0000000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="start_arrow">
+          <pose>-0.4300000 0.0000000 0.0080000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.1400000 0.0250000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0500000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.1800000 0.4900000 1.0000000 1.0000000</ambient>
+            <diffuse>0.1800000 0.4900000 1.0000000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="pick_pad">
+          <pose>0.0000000 0.0000000 0.0040000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.2400000</radius>
+              <length>0.0030000</length>
+            </cylinder>
+          </geometry>
+          <transparency>0.4800000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>1.0000000 0.6700000 0.1400000 1.0000000</ambient>
+            <diffuse>1.0000000 0.6700000 0.1400000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="pick_arrow">
+          <pose>0.1200000 0.0000000 0.0080000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.1400000 0.0250000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0500000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>1.0000000 0.6700000 0.1400000 1.0000000</ambient>
+            <diffuse>1.0000000 0.6700000 0.1400000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="drop_pad">
+          <pose>-0.5500000 1.0000000 0.0040000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.2400000</radius>
+              <length>0.0030000</length>
+            </cylinder>
+          </geometry>
+          <transparency>0.4800000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.6800000 0.3400000 0.9500000 1.0000000</ambient>
+            <diffuse>0.6800000 0.3400000 0.9500000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="drop_arrow">
+          <pose>-0.5500000 1.1200000 0.0080000 0.0000000 0.0000000 1.5707963</pose>
+          <geometry>
+            <box>
+              <size>0.1400000 0.0250000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0500000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.6800000 0.3400000 0.9500000 1.0000000</ambient>
+            <diffuse>0.6800000 0.3400000 0.9500000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="hborder_0">
+          <pose>-0.7200000 -0.3600000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0750000 0.0160000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.9100000 0.9400000 0.9600000 1.0000000</ambient>
+            <diffuse>0.9100000 0.9400000 0.9600000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="hborder_1">
+          <pose>-0.5750000 -0.3600000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0750000 0.0160000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.9100000 0.9400000 0.9600000 1.0000000</ambient>
+            <diffuse>0.9100000 0.9400000 0.9600000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="hborder_2">
+          <pose>-0.4300000 -0.3600000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0750000 0.0160000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.9100000 0.9400000 0.9600000 1.0000000</ambient>
+            <diffuse>0.9100000 0.9400000 0.9600000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="hborder_3">
+          <pose>-0.2850000 -0.3600000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0750000 0.0160000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.9100000 0.9400000 0.9600000 1.0000000</ambient>
+            <diffuse>0.9100000 0.9400000 0.9600000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="hborder_4">
+          <pose>-0.1400000 -0.3600000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0750000 0.0160000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.9100000 0.9400000 0.9600000 1.0000000</ambient>
+            <diffuse>0.9100000 0.9400000 0.9600000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="hborder_5">
+          <pose>0.0050000 -0.3600000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0750000 0.0160000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.9100000 0.9400000 0.9600000 1.0000000</ambient>
+            <diffuse>0.9100000 0.9400000 0.9600000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="hborder_6">
+          <pose>-0.7200000 0.3600000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0750000 0.0160000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.9100000 0.9400000 0.9600000 1.0000000</ambient>
+            <diffuse>0.9100000 0.9400000 0.9600000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="hborder_7">
+          <pose>-0.5750000 0.3600000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0750000 0.0160000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.9100000 0.9400000 0.9600000 1.0000000</ambient>
+            <diffuse>0.9100000 0.9400000 0.9600000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="hborder_8">
+          <pose>-0.4300000 0.3600000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0750000 0.0160000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.9100000 0.9400000 0.9600000 1.0000000</ambient>
+            <diffuse>0.9100000 0.9400000 0.9600000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="hborder_9">
+          <pose>-0.2850000 0.3600000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0750000 0.0160000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.9100000 0.9400000 0.9600000 1.0000000</ambient>
+            <diffuse>0.9100000 0.9400000 0.9600000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="hborder_10">
+          <pose>-0.1400000 0.3600000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0750000 0.0160000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.9100000 0.9400000 0.9600000 1.0000000</ambient>
+            <diffuse>0.9100000 0.9400000 0.9600000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="hborder_11">
+          <pose>0.0050000 0.3600000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0750000 0.0160000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.9100000 0.9400000 0.9600000 1.0000000</ambient>
+            <diffuse>0.9100000 0.9400000 0.9600000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="vborder_12">
+          <pose>-0.9100000 0.0900000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0160000 0.0750000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.9100000 0.9400000 0.9600000 1.0000000</ambient>
+            <diffuse>0.9100000 0.9400000 0.9600000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="vborder_13">
+          <pose>-0.9100000 0.2350000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0160000 0.0750000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.9100000 0.9400000 0.9600000 1.0000000</ambient>
+            <diffuse>0.9100000 0.9400000 0.9600000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="vborder_14">
+          <pose>-0.9100000 0.3800000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0160000 0.0750000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.9100000 0.9400000 0.9600000 1.0000000</ambient>
+            <diffuse>0.9100000 0.9400000 0.9600000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="vborder_15">
+          <pose>-0.9100000 0.5250000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0160000 0.0750000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.9100000 0.9400000 0.9600000 1.0000000</ambient>
+            <diffuse>0.9100000 0.9400000 0.9600000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="vborder_16">
+          <pose>-0.9100000 0.6700000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0160000 0.0750000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.9100000 0.9400000 0.9600000 1.0000000</ambient>
+            <diffuse>0.9100000 0.9400000 0.9600000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="vborder_17">
+          <pose>-0.9100000 0.8150000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0160000 0.0750000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.9100000 0.9400000 0.9600000 1.0000000</ambient>
+            <diffuse>0.9100000 0.9400000 0.9600000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="vborder_18">
+          <pose>-0.9100000 0.9600000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0160000 0.0750000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.9100000 0.9400000 0.9600000 1.0000000</ambient>
+            <diffuse>0.9100000 0.9400000 0.9600000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="vborder_19">
+          <pose>-0.9100000 1.1050000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0160000 0.0750000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.9100000 0.9400000 0.9600000 1.0000000</ambient>
+            <diffuse>0.9100000 0.9400000 0.9600000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="vborder_20">
+          <pose>-0.1900000 0.0900000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0160000 0.0750000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.9100000 0.9400000 0.9600000 1.0000000</ambient>
+            <diffuse>0.9100000 0.9400000 0.9600000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="vborder_21">
+          <pose>-0.1900000 0.2350000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0160000 0.0750000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.9100000 0.9400000 0.9600000 1.0000000</ambient>
+            <diffuse>0.9100000 0.9400000 0.9600000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="vborder_22">
+          <pose>-0.1900000 0.3800000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0160000 0.0750000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.9100000 0.9400000 0.9600000 1.0000000</ambient>
+            <diffuse>0.9100000 0.9400000 0.9600000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="vborder_23">
+          <pose>-0.1900000 0.5250000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0160000 0.0750000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.9100000 0.9400000 0.9600000 1.0000000</ambient>
+            <diffuse>0.9100000 0.9400000 0.9600000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="vborder_24">
+          <pose>-0.1900000 0.6700000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0160000 0.0750000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.9100000 0.9400000 0.9600000 1.0000000</ambient>
+            <diffuse>0.9100000 0.9400000 0.9600000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="vborder_25">
+          <pose>-0.1900000 0.8150000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0160000 0.0750000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.9100000 0.9400000 0.9600000 1.0000000</ambient>
+            <diffuse>0.9100000 0.9400000 0.9600000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="vborder_26">
+          <pose>-0.1900000 0.9600000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0160000 0.0750000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.9100000 0.9400000 0.9600000 1.0000000</ambient>
+            <diffuse>0.9100000 0.9400000 0.9600000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="vborder_27">
+          <pose>-0.1900000 1.1050000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0160000 0.0750000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.9100000 0.9400000 0.9600000 1.0000000</ambient>
+            <diffuse>0.9100000 0.9400000 0.9600000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="heading_pick_0">
+          <pose>-0.3800000 -0.2200000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0800000 0.0120000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.9900000 0.7500000 0.2200000 1.0000000</ambient>
+            <diffuse>0.9900000 0.7500000 0.2200000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="heading_pick_1">
+          <pose>-0.2300000 -0.2200000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0800000 0.0120000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.9900000 0.7500000 0.2200000 1.0000000</ambient>
+            <diffuse>0.9900000 0.7500000 0.2200000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="heading_pick_2">
+          <pose>-0.0800000 -0.2200000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0800000 0.0120000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.9900000 0.7500000 0.2200000 1.0000000</ambient>
+            <diffuse>0.9900000 0.7500000 0.2200000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="heading_drop_0">
+          <pose>-0.7200000 0.2000000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0120000 0.0800000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.7000000 0.4500000 1.0000000 1.0000000</ambient>
+            <diffuse>0.7000000 0.4500000 1.0000000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="heading_drop_1">
+          <pose>-0.7200000 0.5000000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0120000 0.0800000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.7000000 0.4500000 1.0000000 1.0000000</ambient>
+            <diffuse>0.7000000 0.4500000 1.0000000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="heading_drop_2">
+          <pose>-0.7200000 0.8000000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0120000 0.0800000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.7000000 0.4500000 1.0000000 1.0000000</ambient>
+            <diffuse>0.7000000 0.4500000 1.0000000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="turn_ring_0">
+          <pose>-0.2300000 0.0000000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0350000 0.0350000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.1200000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.3000000 0.8500000 0.9500000 1.0000000</ambient>
+            <diffuse>0.3000000 0.8500000 0.9500000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="turn_ring_1">
+          <pose>-0.2728719 0.1600000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0350000 0.0350000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.1200000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.3000000 0.8500000 0.9500000 1.0000000</ambient>
+            <diffuse>0.3000000 0.8500000 0.9500000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="turn_ring_2">
+          <pose>-0.3900000 0.2771281 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0350000 0.0350000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.1200000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.3000000 0.8500000 0.9500000 1.0000000</ambient>
+            <diffuse>0.3000000 0.8500000 0.9500000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="turn_ring_3">
+          <pose>-0.5500000 0.3200000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0350000 0.0350000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.1200000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.3000000 0.8500000 0.9500000 1.0000000</ambient>
+            <diffuse>0.3000000 0.8500000 0.9500000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="turn_ring_4">
+          <pose>-0.7100000 0.2771281 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0350000 0.0350000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.1200000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.3000000 0.8500000 0.9500000 1.0000000</ambient>
+            <diffuse>0.3000000 0.8500000 0.9500000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="turn_ring_5">
+          <pose>-0.8271281 0.1600000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0350000 0.0350000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.1200000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.3000000 0.8500000 0.9500000 1.0000000</ambient>
+            <diffuse>0.3000000 0.8500000 0.9500000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="turn_ring_6">
+          <pose>-0.8700000 0.0000000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0350000 0.0350000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.1200000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.3000000 0.8500000 0.9500000 1.0000000</ambient>
+            <diffuse>0.3000000 0.8500000 0.9500000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="turn_ring_7">
+          <pose>-0.8271281 -0.1600000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0350000 0.0350000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.1200000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.3000000 0.8500000 0.9500000 1.0000000</ambient>
+            <diffuse>0.3000000 0.8500000 0.9500000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="turn_ring_8">
+          <pose>-0.7100000 -0.2771281 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0350000 0.0350000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.1200000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.3000000 0.8500000 0.9500000 1.0000000</ambient>
+            <diffuse>0.3000000 0.8500000 0.9500000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="turn_ring_9">
+          <pose>-0.5500000 -0.3200000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0350000 0.0350000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.1200000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.3000000 0.8500000 0.9500000 1.0000000</ambient>
+            <diffuse>0.3000000 0.8500000 0.9500000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="turn_ring_10">
+          <pose>-0.3900000 -0.2771281 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0350000 0.0350000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.1200000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.3000000 0.8500000 0.9500000 1.0000000</ambient>
+            <diffuse>0.3000000 0.8500000 0.9500000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="turn_ring_11">
+          <pose>-0.2728719 -0.1600000 0.0070000 0.0000000 0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.0350000 0.0350000 0.0020000</size>
+            </box>
+          </geometry>
+          <transparency>0.1200000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.3000000 0.8500000 0.9500000 1.0000000</ambient>
+            <diffuse>0.3000000 0.8500000 0.9500000 1.0000000</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="pickup_stand">
+      <pose>0.2750000 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000</pose>
+      <static>true</static>
+      <link name="body">
+        <pose>0 0 0.072500 0 0 0</pose>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.14 0.16 0.145000</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.14 0.16 0.145000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.70 0.40 0.12 1</ambient>
+            <diffuse>0.88 0.53 0.18 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="product_cube">
+      <pose>0.2400000 0.0000000 0.1710000 0.0000000 0.0000000 0.0000000</pose>
+      <static>false</static>
+      <link name="cube">
+        <inertial>
+          <mass>0.06</mass>
+          <inertia>
+            <ixx>0.000025</ixx>
+            <iyy>0.000025</iyy>
+            <izz>0.000025</izz>
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.05</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1.2</mu>
+                <mu2>1.2</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.05</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.08 0.65 0.18 1</ambient>
+            <diffuse>0.10 0.80 0.23 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="delivery_stand">
+      <static>true</static>
+      <pose>-0.8000000 1.1370000 0.0000000 0.0000000 0.0000000 1.5707963</pose>
+      <link name="body">
+        <pose>0.0000000 0.0000000 0.0907500 0.0000000 0.0000000 0.0000000</pose>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.0800000 0.0800000 0.1815000</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.0800000 0.0800000 0.1815000</size>
+            </box>
+          </geometry>
+          <transparency>0.0000000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.5200000 0.3400000 0.9400000 1.0000000</ambient>
+            <diffuse>0.5200000 0.3400000 0.9400000 1.0000000</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="ghost_pick">
+      <static>true</static>
+      <pose>0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000</pose>
+      <link name="all_visuals">
+        <visual name="chassis_link_0">
+          <pose>0.0000000 0.0000000 0.0950000 0.0000000 -0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.36 0.30 0.06</size>
+            </box>
+          </geometry>
+          <transparency>0.7300000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.1200000 0.8600000 1.0000000 1.0000000</ambient>
+            <diffuse>0.1200000 0.8600000 1.0000000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="left_wheel_link_0">
+          <pose>-0.0800000 0.1700000 0.0500000 1.5707963 -0.0000000 0.0000000</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.05</radius>
+              <length>0.028</length>
+            </cylinder>
+          </geometry>
+          <transparency>0.7300000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.1200000 0.8600000 1.0000000 1.0000000</ambient>
+            <diffuse>0.1200000 0.8600000 1.0000000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="right_wheel_link_0">
+          <pose>-0.0800000 -0.1700000 0.0500000 1.5707963 -0.0000000 0.0000000</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.05</radius>
+              <length>0.028</length>
+            </cylinder>
+          </geometry>
+          <transparency>0.7300000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.1200000 0.8600000 1.0000000 1.0000000</ambient>
+            <diffuse>0.1200000 0.8600000 1.0000000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="caster_link_0">
+          <pose>0.1400000 0.0000000 0.0350000 0.0000000 -0.0000000 0.0000000</pose>
+          <geometry>
+            <sphere>
+              <radius>0.035</radius>
+            </sphere>
+          </geometry>
+          <transparency>0.7300000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.1200000 0.8600000 1.0000000 1.0000000</ambient>
+            <diffuse>0.1200000 0.8600000 1.0000000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="crane_plus_base_0">
+          <pose>0.1400000 0.0000000 0.1450000 0.0000000 -0.0000000 1.5707963</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/ubuntu/airobot_ws/src/crane_plus/crane_plus_description/meshes/visual/body_20201013.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <transparency>0.7300000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.1200000 0.8600000 1.0000000 1.0000000</ambient>
+            <diffuse>0.1200000 0.8600000 1.0000000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="crane_plus_link1_0">
+          <pose>0.1400000 0.0000000 0.1904000 0.0000000 -0.0000000 -1.5707990</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/ubuntu/airobot_ws/src/crane_plus/crane_plus_description/meshes/visual/Link1_20201013.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <transparency>0.7300000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.1200000 0.8600000 1.0000000 1.0000000</ambient>
+            <diffuse>0.1200000 0.8600000 1.0000000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="crane_plus_link2_0">
+          <pose>0.1400000 0.0000000 0.2164000 1.5707950 -1.1600000 1.5707963</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/ubuntu/airobot_ws/src/crane_plus/crane_plus_description/meshes/visual/Link2_20201013.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <transparency>0.7300000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.1200000 0.8600000 1.0000000 1.0000000</ambient>
+            <diffuse>0.1200000 0.8600000 1.0000000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="crane_plus_link3_0">
+          <pose>0.1400000 -0.0760947 0.2495452 1.5707950 0.8500000 1.5707963</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/ubuntu/airobot_ws/src/crane_plus/crane_plus_description/meshes/visual/Link3_20201013.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <transparency>0.7300000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.1200000 0.8600000 1.0000000 1.0000000</ambient>
+            <diffuse>0.1200000 0.8600000 1.0000000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="crane_plus_link4_0">
+          <pose>0.1400000 -0.0058499 0.3112536 -1.5707977 1.5615927 -1.5707963</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/ubuntu/airobot_ws/src/crane_plus/crane_plus_description/meshes/visual/Link4_20201013.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <transparency>0.7300000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.1200000 0.8600000 1.0000000 1.0000000</ambient>
+            <diffuse>0.1200000 0.8600000 1.0000000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="crane_plus_link_hand_0">
+          <pose>0.1545000 0.0391482 0.3108394 0.0000000 0.0092050 1.5707963</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/ubuntu/airobot_ws/src/crane_plus/crane_plus_description/meshes/visual/Hand_20201013.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <transparency>0.7300000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.1200000 0.8600000 1.0000000 1.0000000</ambient>
+            <diffuse>0.1200000 0.8600000 1.0000000 1.0000000</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="ghost_drop">
+      <static>true</static>
+      <pose>-0.5500000 1.0000000 0.0000000 0.0000000 0.0000000 1.5707963</pose>
+      <link name="all_visuals">
+        <visual name="chassis_link_0">
+          <pose>0.0000000 0.0000000 0.0950000 0.0000000 -0.0000000 0.0000000</pose>
+          <geometry>
+            <box>
+              <size>0.36 0.30 0.06</size>
+            </box>
+          </geometry>
+          <transparency>0.7300000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.7800000 0.4000000 1.0000000 1.0000000</ambient>
+            <diffuse>0.7800000 0.4000000 1.0000000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="left_wheel_link_0">
+          <pose>-0.0800000 0.1700000 0.0500000 1.5707963 -0.0000000 0.0000000</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.05</radius>
+              <length>0.028</length>
+            </cylinder>
+          </geometry>
+          <transparency>0.7300000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.7800000 0.4000000 1.0000000 1.0000000</ambient>
+            <diffuse>0.7800000 0.4000000 1.0000000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="right_wheel_link_0">
+          <pose>-0.0800000 -0.1700000 0.0500000 1.5707963 -0.0000000 0.0000000</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.05</radius>
+              <length>0.028</length>
+            </cylinder>
+          </geometry>
+          <transparency>0.7300000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.7800000 0.4000000 1.0000000 1.0000000</ambient>
+            <diffuse>0.7800000 0.4000000 1.0000000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="caster_link_0">
+          <pose>0.1400000 0.0000000 0.0350000 0.0000000 -0.0000000 0.0000000</pose>
+          <geometry>
+            <sphere>
+              <radius>0.035</radius>
+            </sphere>
+          </geometry>
+          <transparency>0.7300000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.7800000 0.4000000 1.0000000 1.0000000</ambient>
+            <diffuse>0.7800000 0.4000000 1.0000000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="crane_plus_base_0">
+          <pose>0.1400000 0.0000000 0.1450000 0.0000000 -0.0000000 1.5707963</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/ubuntu/airobot_ws/src/crane_plus/crane_plus_description/meshes/visual/body_20201013.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <transparency>0.7300000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.7800000 0.4000000 1.0000000 1.0000000</ambient>
+            <diffuse>0.7800000 0.4000000 1.0000000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="crane_plus_link1_0">
+          <pose>0.1400000 0.0000000 0.1904000 0.0000000 -0.0000000 -1.5707331</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/ubuntu/airobot_ws/src/crane_plus/crane_plus_description/meshes/visual/Link1_20201013.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <transparency>0.7300000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.7800000 0.4000000 1.0000000 1.0000000</ambient>
+            <diffuse>0.7800000 0.4000000 1.0000000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="crane_plus_link2_0">
+          <pose>0.1400000 0.0000000 0.2164000 1.5707950 1.0577805 1.5708622</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/ubuntu/airobot_ws/src/crane_plus/crane_plus_description/meshes/visual/Link2_20201013.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <transparency>0.7300000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.7800000 0.4000000 1.0000000 1.0000000</ambient>
+            <diffuse>0.7800000 0.4000000 1.0000000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="crane_plus_link3_0">
+          <pose>0.1399952 0.0723153 0.2571370 -1.5707977 0.9806583 -1.5707305</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/ubuntu/airobot_ws/src/crane_plus/crane_plus_description/meshes/visual/Link3_20201013.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <transparency>0.7300000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.7800000 0.4000000 1.0000000 1.0000000</ambient>
+            <diffuse>0.7800000 0.4000000 1.0000000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="crane_plus_link4_0">
+          <pose>0.1399901 0.1500010 0.2051065 -1.5707977 1.5702725 -1.5707305</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/ubuntu/airobot_ws/src/crane_plus/crane_plus_description/meshes/visual/Link4_20201013.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <transparency>0.7300000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.7800000 0.4000000 1.0000000 1.0000000</ambient>
+            <diffuse>0.7800000 0.4000000 1.0000000 1.0000000</diffuse>
+          </material>
+        </visual>
+        <visual name="crane_plus_link_hand_0">
+          <pose>0.1544872 0.1950020 0.2050829 0.0000549 0.0005222 1.6758622</pose>
+          <geometry>
+            <mesh>
+              <uri>file:///home/ubuntu/airobot_ws/src/crane_plus/crane_plus_description/meshes/visual/Hand_20201013.stl</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <transparency>0.7300000</transparency>
+          <cast_shadows>false</cast_shadows>
+          <material>
+            <ambient>0.7800000 0.4000000 1.0000000 1.0000000</ambient>
+            <diffuse>0.7800000 0.4000000 1.0000000 1.0000000</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>
